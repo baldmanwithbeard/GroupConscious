@@ -41,6 +41,7 @@ namespace GroupConsciousAndroidApp.Tabbed
 
                 case Resource.Id.navigation_calendar:
                     textMessage.SetText(Resource.String.title_calendar);
+                    //SetContentView(Resource.Layout.activity_main);
                     return true;
 
                 case Resource.Id.navigation_notifications:
