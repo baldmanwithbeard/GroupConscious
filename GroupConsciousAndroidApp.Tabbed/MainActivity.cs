@@ -11,7 +11,7 @@ namespace GroupConsciousAndroidApp.Tabbed
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
-        TextView textMessage;
+        private TextView textMessage;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -23,12 +23,14 @@ namespace GroupConsciousAndroidApp.Tabbed
             BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
         public bool OnNavigationItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -36,9 +38,11 @@ namespace GroupConsciousAndroidApp.Tabbed
                 case Resource.Id.navigation_home:
                     textMessage.SetText(Resource.String.title_home);
                     return true;
-                case Resource.Id.navigation_dashboard:
-                    textMessage.SetText(Resource.String.title_dashboard);
+
+                case Resource.Id.navigation_calendar:
+                    textMessage.SetText(Resource.String.title_calendar);
                     return true;
+
                 case Resource.Id.navigation_notifications:
                     textMessage.SetText(Resource.String.title_notifications);
                     return true;
@@ -47,4 +51,3 @@ namespace GroupConsciousAndroidApp.Tabbed
         }
     }
 }
-
